@@ -1,0 +1,34 @@
+openapi: "3.0.2"
+
+info:
+  title: Insert the name of your API.
+  description: |
+    Insert a short description of your API.
+  x-logo:
+    url: You can insert a URL to your logo.
+  contact:
+    name: Språkbanken
+    url: https://spraakbanken.gu.se/
+    email: sb@svenska.gu.se
+  license:
+    name: MIT
+    url: "https://opensource.org/licenses/MIT"
+  version: Insert the version number of your API
+
+servers:
+  - url: base URL to your API
+    description: e.g. "Production server"
+
+tags:
+  Define your tags here. See https://swagger.io/docs/specification/grouping-operations-with-tags/ for reference.
+
+paths:
+  Define your paths here. See https://swagger.io/docs/specification/paths-and-operations/ for reference.
+
+components:
+  securitySchemes:
+    Define your paths here (if there are any). See https://swagger.io/docs/specification/authentication/ for reference.
+  parameters:
+    Define your paths here. See https://swagger.io/docs/specification/describing-parameters/ for reference.
+  schemas:
+    Define your schemas here. See https://swagger.io/docs/specification/data-models/ for reference.
