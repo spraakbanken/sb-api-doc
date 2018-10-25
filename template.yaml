@@ -27,8 +27,8 @@ paths:
 
 components:
   securitySchemes:
-    Define your paths here (if there are any). See https://swagger.io/docs/specification/authentication/ for reference.
+    Define your security schemes here (if there are any). See https://swagger.io/docs/specification/authentication/ for reference.
   parameters:
-    Define your paths here. See https://swagger.io/docs/specification/describing-parameters/ for reference.
+    Define your parameters here. See https://swagger.io/docs/specification/describing-parameters/ for reference.
   schemas:
     Define your schemas here. See https://swagger.io/docs/specification/data-models/ for reference.
