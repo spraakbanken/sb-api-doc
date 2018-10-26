@@ -1,3 +1,4 @@
 apis:
   - name: Sparv
     oas-file: https://raw.githubusercontent.com/spraakbanken/sparv-backend/oas-adapt/app/static/sparv_api_spec.json
+    path: /sparv

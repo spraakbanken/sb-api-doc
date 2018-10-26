@@ -40,8 +40,8 @@ Or somewhat more human-readable:
 ## Examples
 
 For inspiration, see some of the already available specifications for Språkbanken’s tools:
-* TODO: Korp's OAS file, Korp's documentation page
-* TODO: Sparv's OAS file, Sparv's documentation page
+* *TODO: Korp's OAS file, Korp's documentation page*
+* *TODO: Sparv's OAS file, Sparv's documentation page*
 
 ## Template
 
@@ -51,8 +51,13 @@ Check the files in the templates folder for a basic skeleton of an OAS.
 
 For now Språkbanken uses [Redoc](https://github.com/Rebilly/ReDoc) for automatic conversion of the OAS files into an HTML documentation page.
 
-* TODO: Instructions for uploading info om OAS to GitHub, webhooks etc...
-* TODO: Redoc test page (paste a URL or document and get a preview of the Redoc HTML)
+To register your API documentation please add the following information in the file `oas-register.yaml` (in this repository):
+  * `name`: The name of your API (used as meta data only).
+  * `oas-file`: The URL from where the OAS file can be retrieved. This URL must be     accessible from Språkbanken's servers. *TODO: Should the URL point to a GitHub repo? Webhook?*
+  * `path`: The path to your API documentation that will be created automatically *TODO: Write better explanation and add example!*
+
+* *TODO: What happens after filling in the oas-register? webhook? nightly build of HTML?*
+* *TODO: Redoc test page (paste a URL or document and get a preview of the Redoc HTML)*
 
 ## Tools
 
