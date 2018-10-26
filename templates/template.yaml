@@ -1,23 +1,22 @@
 openapi: "3.0.2"
 
 info:
-  title: Insert the name of your API.
-  description: |
-    Insert a short description of your API.
+  title: Name of your API
+  description: Description of your API
+  version: API version
   x-logo:
-    url: You can insert a URL to your logo.
+    url: URL to your logo
   contact:
     name: Språkbanken
     url: https://spraakbanken.gu.se/
     email: sb@svenska.gu.se
   license:
     name: MIT
-    url: "https://opensource.org/licenses/MIT"
-  version: Insert the version number of your API
+    url: https://opensource.org/licenses/MIT
 
 servers:
-  - url: base URL to your API
-    description: e.g. "Production server"
+  - url: Base URL for your API
+    description: Optional server description, e.g. Production server
 
 tags:
   Define your tags here. See https://swagger.io/docs/specification/grouping-operations-with-tags/ for reference.
