@@ -13,12 +13,11 @@ Or somewhat more human-readable:
 
 ## Språkbanken's requirements
 
-The OAS file should be written in YAML or JSON. (There are tools which can convert between these formats.)
-The OAS file must be a valid version 3 OpenAPI Specification.
-The OAS file should “live” together with your code, i.e. it should be stored in the application’s GitHub repository or it can be made available via a call to the web service.
-
-It is up you whether the specification is programmatically generated (e.g. from docstrings) or written entirely by hand.
-If you would like to include example calls in the description fields, please use the following format (this is not part of the official OpenAPI Specification but rather a Språkbanken addition):
+* The OAS file should be written in YAML or JSON. (There are tools which can convert between these formats.)
+* The OAS file must be a valid version 3 OpenAPI Specification.
+* The OAS file should “live” together with your code, i.e. it should be stored in the application’s GitHub repository.
+* It is up you whether the specification is programmatically generated (e.g. from docstrings) or written entirely by hand.
+* If you would like to include example calls in the description fields, please use the following format (this is not part of the official OpenAPI Specification but rather a Språkbanken addition):
 
 ```YAML
 description: |
@@ -38,13 +37,19 @@ description: |
 ## Examples
 
 For inspiration, see some of the already available specifications for Språkbanken’s tools:
-* Korp-länk
-* Sparv-länk
-* etc
+* TODO: Korp's OAS file, Korp's documentation page
+* TODO: Sparv's OAS file, Sparv's documentation page
 
 ## Template
 
-Check the files TODO for a basic skeleton of an OAS.
+Check the files in the templates folder for a basic skeleton of an OAS.
+
+## Generating HTML documentation from OAS
+
+For now Språkbanken uses [Redoc](https://github.com/Rebilly/ReDoc) for automatic conversion of the OAS files into an HTML documentation page.
+
+* TODO: Instructions for uploading info om OAS to GitHub, webhooks etc...
+* TODO: Redoc test page (paste a URL or document and get a preview of the Redoc HTML)
 
 ## Tools
 
@@ -57,7 +62,3 @@ Check the files TODO for a basic skeleton of an OAS.
 
 * [OpenAPI Generator](https://openapi-generator.tech/)
 Allows generation of API client libraries (SDK generation), server stubs, documentation and configuration automatically given an OpenAPI Spec.
-
-### Generating HTML documentation from OAS
-
-TODO Redoc-sida (klistra in URL för att se den färdiga specen i HTML)
