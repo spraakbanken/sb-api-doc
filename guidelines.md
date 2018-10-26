@@ -39,9 +39,7 @@ Or somewhat more human-readable:
 
 ## Examples
 
-For inspiration, see some of the already available specifications for Språkbanken’s tools:
-* *TODO: Korp's OAS file, Korp's documentation page*
-* *TODO: Sparv's OAS file, Sparv's documentation page*
+For inspiration, see some of the already available specifications for Språkbanken’s tools in the example folder.
 
 ## Template
 
@@ -65,8 +63,9 @@ To register your API documentation please add the following information in the f
 
 * [Swagger-editor](http://editor.swagger.io): Writing OAS with instant evaluation and generation of interactive documentation
 * [ReadMe oas](https://openap.is/): Generate OAS from inline-code annotations
+* [Openapi-spec-validator](https://github.com/p1c2u/openapi-spec-validator): Python library for validating OAS files
+* [Swagger Inspector](https://swagger.io/tools/swagger-inspector/): Online tool for generating OAS files from example calls. (Requires user account.)
 
 ### Generating code from API specifications
 
-* [OpenAPI Generator](https://openapi-generator.tech/)
-Allows generation of API client libraries (SDK generation), server stubs, documentation and configuration automatically given an OpenAPI Spec.
+* [OpenAPI Generator](https://openapi-generator.tech/): Allows generation of API client libraries (SDK generation), server stubs, documentation and configuration automatically given an OpenAPI Spec.
