@@ -2,9 +2,9 @@
 
 ## Open API specification
 
-Documentation of Språkbanken’s REST APIs is done with Open API Specification (OAS). This format is widely used and supported by a large group of organisations. It can be used for describing, producing, consuming, and visualizing RESTful web services.
+Documentation of Språkbanken’s REST APIs is done with Open API Specification (OAS). This format is widely used and supported by a large amount of organisations. It can be used for describing, producing, consuming, and visualizing RESTful web services.
 
-The OAS is described here:
+The OAS format is described here:
 * https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md
 
 Or somewhat more human-readable:
@@ -19,20 +19,23 @@ Or somewhat more human-readable:
 * It is up you whether the specification is programmatically generated (e.g. from docstrings) or written entirely by hand.
 * If you would like to include example calls in the description fields, please use the following format (this is not part of the official OpenAPI Specification but rather a Språkbanken addition):
 
-```YAML
-description: |
-    Pings the backend, responds with the status of the catapult.
+    YAML example:
+    ```YAML
+    description: |
+        Pings the backend, responds with the status of the catapult.
 
-    ### Example
+        ### Example
 
-    [`/ping`](https://ws.spraakbanken.gu.se/ws/sparv/v2/ping)
-```
-```JSON
-{
-  "description": "Pings the backend, responds with the status of the catapult.\n\n### Example\n\n[`/ping`](https://ws.spraakbanken.gu.se/ws/sparv/v2/ping)\n"
-}
+        [`/ping`](https://ws.spraakbanken.gu.se/ws/sparv/v2/ping)
+    ```
 
-```
+    JSON example:
+    ```JSON
+    {
+      "description": "Pings the backend, responds with the status of the catapult.\n\n### Example\n\n[`/ping`](https://ws.spraakbanken.gu.se/ws/sparv/v2/ping)\n"
+    }
+
+    ```
 
 ## Examples
 
