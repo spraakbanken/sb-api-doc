@@ -21,7 +21,11 @@ Serve html from Open API Specification:
 
 ## build_doc (python)
 
-Install pipenv:
+Install pipenv if it's not on your system:
+
+    pip3 install --user pipenv
+
+Install dependencies:
 
     pipenv install
 
