@@ -17,3 +17,14 @@ Build html from Open API Specification:
 Serve html from Open API Specification:
 
     redoc-cli serve [oasfile.[yaml|json]] -w [--options.[optionName]]
+
+
+## build_doc (python)
+
+Install pipenv:
+
+    pipenv install
+
+Run script:
+
+    pipenv run python build_doc.py
