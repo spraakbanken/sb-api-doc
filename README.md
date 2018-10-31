@@ -1,34 +1,52 @@
-# sb-api-doc
-Guidelines for API documentation
+# API documentation at Språkbanken
+
+The goal of this project is to standardise the documentation of REST APIs
+at Språkbanken.
+
+This repository contains:
+
+* guidelines for API documentation
+* a register for Open API Specification files
+* code for generating html documentation from Open API Specification files
 
 
-## ReDoc
+## Requirements
 
-See [ReDoc page on GitHub](https://github.com/Rebilly/ReDoc) for full reference.
-
-Install ReDoc using npm:
-
-    npm install
-
-Build html from Open API Specification:
-
-    redoc-cli bundle [oasfile.[yaml|json]] [--options.[optionName]]
-
-Serve html from Open API Specification:
-
-    redoc-cli serve [oasfile.[yaml|json]] -w [--options.[optionName]]
+* [Python](https://www.python.org/) 3.4 or newer
+* [pipenv](https://pipenv.readthedocs.io/en/latest/) (install with `pip3 install --user pipenv`)
+* [npm](https://www.npmjs.com/)
 
 
-## build_doc (python)
+## Installation
 
-Install pipenv if it's not on your system:
-
-    pip3 install --user pipenv
-
-Install dependencies:
+Install python dependencies:
 
     pipenv install
 
-Run script:
+Install [ReDoc](https://github.com/Rebilly/ReDoc) using npm:
+
+    npm install
+
+
+## Usage
+
+### build_doc
+
+This python script will parse the yaml register `oas-register.yaml` and download the OAS files for Språkbanken's REST APIs. It will then call ReDoc and build html documentation.
+
+Run `build_doc.py` with pipenv:
 
     pipenv run python build_doc.py
+
+
+### ReDoc
+
+ReDoc is used to convert OAS files into HTML. It is called automatically by `build_doc.py` but can also be run separately. See [ReDoc](https://github.com/Rebilly/ReDoc) for full reference.
+
+Build html from Open API Specification:
+
+    npx redoc-cli bundle [oasfile.[yaml|json]] [--options.[optionName]]
+
+Serve html from Open API Specification:
+
+    npx redoc-cli serve [oasfile.[yaml|json]] -w [--options.[optionName]]
