@@ -39,7 +39,15 @@ Or somewhat more human-readable:
 
 ## Examples
 
-For inspiration, see some of the already available specifications for Språkbanken’s tools in the example folder.
+For inspiration, see some of the already available specifications for Språkbanken’s tools:
+
+* Korp
+    * OAS file in YAML *TODO*
+    * documentation HTML *TODO*
+
+* Sparv
+    * [OAS file in JSON](https://raw.githubusercontent.com/spraakbanken/sparv-backend/oas-adapt/app/static/sparv_api_spec.json)
+    * [documentation HTML](http://demo.spraakdata.gu.se/apidoc/sparv/)
 
 ## Template
 
