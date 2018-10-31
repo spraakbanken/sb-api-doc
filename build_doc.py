@@ -31,10 +31,13 @@ def process_apis(apis):
     html_dir_path = Config.get("BUILD", "html_dir_path")
     assert os.path.exists(html_dir_path),\
         "HTML dir path does not exist: %s" % html_dir_path
+    tmp_dir_path = Config.get("BUILD", "tmp_dir_path")
+    assert os.path.exists(tmp_dir_path),\
+        "Directory for temporary files does not exist: %s" % tmp_dir_path
 
     for api in apis:
         download_oas(api, oas_dir_path)
-        make_html(api, html_dir_path)
+        make_html(api, html_dir_path, tmp_dir_path)
 
 
 def download_oas(api, oas_dir_path):
@@ -52,13 +55,9 @@ def download_oas(api, oas_dir_path):
         raise
 
 
-def make_html(api, html_dir_path):
+def make_html(api, html_dir_path, tmp_dir_path):
     """Generate HTML from OAS file."""
     oas_file_path = api.get("oas_file_path", False)
-    tmp_dir_path = Config.get("BUILD", "tmp_dir_path")
-
-    if not os.path.exists(tmp_dir_path):
-        os.mkdir(tmp_dir_path)
 
     tmp_html_path = os.path.join(tmp_dir_path, api["name"] + "_index.html")
 
