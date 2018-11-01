@@ -1,4 +1,4 @@
-# API documentation at Språkbanken
+# API Documentation at Språkbanken
 
 The goal of this project is to standardise the documentation of REST APIs
 at Språkbanken.
@@ -10,43 +10,24 @@ This repository contains:
 * code for generating html documentation from Open API Specification files
 
 
-## Requirements
+## API Documentation Guidelines
 
-* [Python](https://www.python.org/) 3.4 or newer
-* [pipenv](https://pipenv.readthedocs.io/en/latest/) (install with `pip3 install --user pipenv`)
-* [npm](https://www.npmjs.com/)
-
-
-## Installation
-
-Install python dependencies:
-
-    pipenv install
-
-Install [ReDoc](https://github.com/Rebilly/ReDoc) using npm:
-
-    npm install
+Please check the [guidelines document](guidelines.md) for more information on how to write documentation for Språkbanken's
+REST APIs.
 
 
-## Usage
+## Automatic Generation of HTML Documentation
 
-### build_doc
+By registering your Open API Specification (OAS) file in [`oas-register.yaml`](oas-register.yaml) an HTML version of the
+documentation will be generated automatically and published to the [SB API documentation portal](http://demo.spraakdata.gu.se/apidoc).
 
-This python script will parse the yaml register `oas-register.yaml` and download the OAS files for Språkbanken's REST APIs. It will then call ReDoc and build html documentation.
+To register your API documentation please add the following information to [`oas-register.yaml`](oas-register.yaml):
+  * `name`: The name of your API (used as meta data only).
+  * `oas-file`: The URL from where the OAS file can be retrieved. This URL must be accessible from Språkbanken's servers.
+  * `path`: The path to your API documentation that will be created automatically. This path should be relative to the
+    [SB API documentation portal](http://demo.spraakdata.gu.se/apidoc). E.g. if the `path` is set to `sparv` the documentation
+    will be available at http://demo.spraakdata.gu.se/apidoc/sparv.
 
-Run `build_doc.py` with pipenv:
 
-    pipenv run python build_doc.py
-
-
-### ReDoc
-
-ReDoc is used to convert OAS files into HTML. It is called automatically by `build_doc.py` but can also be run separately. See [ReDoc](https://github.com/Rebilly/ReDoc) for full reference.
-
-Build html from Open API Specification:
-
-    npx redoc-cli bundle [oasfile.[yaml|json]] [--options.[optionName]]
-
-Serve html from Open API Specification:
-
-    npx redoc-cli serve [oasfile.[yaml|json]] -w [--options.[optionName]]
+* *TODO: What happens after filling in the oas-register? nightly build of HTML?*
+* *TODO: Redoc test page (paste a URL or document and get a preview of the Redoc HTML)*
