@@ -67,13 +67,18 @@ def make_html(api, html_dir_path, tmp_dir_path):
     if oas_file_path:
         html_file_path = os.path.join(html_dir_path, api["path"], "index.html")
 
+    # Get path for npx executable
+    get_npx_path = subprocess.Popen(["which", "npx"], stdout=subprocess.PIPE)
+    npx_path, _stderr = get_npx_path.communicate()
+    npx_path = npx_path.decode().rstrip("\n")
+
     # Produce temporary html first to check if everything goes well
-    result = subprocess.Popen(["npx", "redoc-cli", "bundle", oas_file_path, "--options.expandResponses=all",
+    result = subprocess.Popen([npx_path, "redoc-cli", "bundle", oas_file_path, "--options.expandResponses=all",
                                "untrustedSpec", "-o", tmp_html_path], stdout=subprocess.PIPE)
 
     # Do the real thing!
     if result.stderr is None:
-        subprocess.Popen(["npx", "redoc-cli", "bundle", oas_file_path, "--options.expandResponses=all",
+        subprocess.Popen([npx_path, "redoc-cli", "bundle", oas_file_path, "--options.expandResponses=all",
                           "untrustedSpec", "-o", html_file_path], stdout=subprocess.PIPE)
         print("Built documentation for %s." % api["name"])
     else:
