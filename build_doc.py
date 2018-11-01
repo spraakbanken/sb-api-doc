@@ -66,6 +66,8 @@ def make_html(api, html_dir_path, tmp_dir_path):
 
     if oas_file_path:
         html_file_path = os.path.join(html_dir_path, api["path"], "index.html")
+    else:
+        raise("Cannot build html for %s. No html dir path set." % api["name"])
 
     # Get path for npx executable
     get_npx_path = subprocess.Popen(["which", "npx"], stdout=subprocess.PIPE)
