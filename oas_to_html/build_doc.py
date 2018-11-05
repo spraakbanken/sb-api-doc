@@ -1,12 +1,20 @@
 
 import os
+import sys
 import configparser
 import yaml
 import urllib.request
 import subprocess
 
 # Read config
-configfile = 'config.cfg'
+if os.path.exists('config.cfg') is False:
+    sys.stderr.write("Please copy config_default.cfg to config.cfg and add your settings!")
+    sys.stderr.write("Using default settings for now.")
+    configfile = 'config_default.cfg'
+else:
+    configfile = 'config.cfg'
+
+
 Config = configparser.ConfigParser()
 Config.read(configfile)
 

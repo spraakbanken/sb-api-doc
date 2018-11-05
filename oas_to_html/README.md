@@ -11,20 +11,23 @@ For now Språkbanken uses [Redoc](https://github.com/Rebilly/ReDoc) for conversi
 
 ## Installation
 
-Install python dependencies:
+* Install python dependencies:
 
-    pipenv install
+    `pipenv install`
 
-Install [ReDoc](https://github.com/Rebilly/ReDoc) using npm:
+* Install [ReDoc](https://github.com/Rebilly/ReDoc) using npm:
 
-    npm install
+    `npm install`
+
+* Copy `config_default.cfg` to `config.cfg` and adapt the paths.
+  Create directories for the OAS files, HTML files and temporary files if needed.
 
 
 ## Usage
 
 ### build_doc
 
-This python script will parse the yaml register `oas-register.yaml` and download the OAS files for Språkbanken's REST APIs. It will then call ReDoc and build html documentation.
+This python script will parse the yaml register `oas-register.yaml` and download the OAS files for Språkbanken's REST APIs. It will then call ReDoc and build HTML documentation.
 
 Run `build_doc.py` with pipenv:
 
@@ -35,10 +38,10 @@ Run `build_doc.py` with pipenv:
 
 ReDoc is used to convert OAS files into HTML. It is called automatically by `build_doc.py` but can also be run separately. See [ReDoc](https://github.com/Rebilly/ReDoc) for full reference.
 
-Build html from Open API Specification:
+Build HTML from Open API Specification:
 
     npx redoc-cli bundle [oasfile.[yaml|json]] [--options.[optionName]]
 
-Serve html from Open API Specification:
+Serve HTML from Open API Specification (and reload on change):
 
     npx redoc-cli serve [oasfile.[yaml|json]] -w [--options.[optionName]]
