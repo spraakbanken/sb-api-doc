@@ -27,7 +27,7 @@ To register your API documentation please add the following information to [`oas
   * `path`: The path to your API documentation that will be created automatically. This path should be relative to the
     [SB API documentation portal](http://demo.spraakdata.gu.se/apidoc). E.g. if the `path` is set to `sparv` the documentation
     will be available at http://demo.spraakdata.gu.se/apidoc/sparv.
+  * `description`: A very short description of the API.
 
-
-* *TODO: What happens after filling in the oas-register? nightly build of HTML?*
+* *TODO: What happens after filling in the oas-register? nightly build of HTML*
 * *TODO: Redoc test page (paste a URL or document and get a preview of the Redoc HTML)*
