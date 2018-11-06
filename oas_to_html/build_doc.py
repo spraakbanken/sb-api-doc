@@ -2,9 +2,13 @@
 import os
 import sys
 import configparser
+import json
 import yaml
 import urllib.request
 import subprocess
+
+from shutil import copyfile
+
 
 # Read config
 if os.path.exists('config.cfg') is False:
@@ -47,6 +51,8 @@ def process_apis(apis):
         download_oas(api, oas_dir_path)
         make_html(api, html_dir_path, tmp_dir_path)
 
+    make_index_page(apis, html_dir_path, tmp_dir_path)
+
 
 def download_oas(api, oas_dir_path):
     """Download a single OAS file."""
@@ -74,6 +80,7 @@ def make_html(api, html_dir_path, tmp_dir_path):
 
     if oas_file_path:
         html_file_path = os.path.join(html_dir_path, api["path"], "index.html")
+        api["html_file"] = html_file_path
     else:
         raise("Cannot build html for %s. No html dir path set." % api["name"])
 
@@ -90,11 +97,76 @@ def make_html(api, html_dir_path, tmp_dir_path):
         raise(result.stderr)
 
 
+def make_index_page(apis, html_dir_path, tmp_dir_path):
+    """Fill in API information in index.html and deploy it."""
+    html_pieces = []
+
+    for api in apis:
+
+        logo_url = get_logo(api["oas_file_path"])
+        if logo_url:
+            logo = "<img src='%s' alt='%s-logo'>" % (logo_url, api.get("path"))
+        else:
+            logo = "<i class='fa fa-user-cog'></i>"
+
+        html_pieces.append("""
+        <li>
+          <a href="%s">
+            %s
+            %s
+          </a>
+          &ndash; %s
+        </li>
+        """ % (api.get("html_file"), logo, api.get("name"), api.get("description"))
+        )
+
+    html_list_items = "\n".join(html_pieces)
+    index_file = os.path.join(Config.get("BUILD", "static"), "index.html")
+
+    # Insert generated API list into index.html
+    with open(index_file, "r") as f:
+        html_contents = f.read()
+        html_contents = html_contents.replace("[APILIST]", html_list_items)
+
+    try:
+        # Write new html.index to temp path
+        new_html_index = os.path.join(tmp_dir_path, "index.html")
+        with open(new_html_index, "w") as f:
+            f.write(html_contents)
+    except:
+        raise("Failed to build index.html!")
+    else:
+        # Deploy index.html and styles.css
+        copyfile(new_html_index, os.path.join(html_dir_path, "index.html"))
+        styles_css = os.path.join(Config.get("BUILD", "static"), "styles.css")
+        copyfile(styles_css, os.path.join(html_dir_path, "styles.css"))
+        print("Deployed index.html and styles.css.")
+
+
 def make_oas_name(api_name, url):
     """Make file name from api_name."""
     prefix = api_name.lower().replace(" ", "_")
     basename = os.path.basename(url)
     return prefix + "_" + basename
+
+
+def get_logo(oas_file):
+    """Parse OAS file and try to get logo."""
+    filename, file_extension = os.path.splitext(oas_file)
+
+    if file_extension.lower() == ".json":
+        with open(oas_file, "r") as f:
+            oas = json.load(f)
+
+    elif file_extension.lower() == ".yaml":
+        with open(oas_file, "r") as f:
+            oas = yaml.load(f)
+    else:
+        raise("Unknown OAS file extension: '%s'. Could not retrieve logo." % file_extension)
+
+    logo_info = oas["info"].get("x-logo", False)
+    if logo_info:
+        return logo_info.get("url", False)
 
 
 if __name__ == '__main__':

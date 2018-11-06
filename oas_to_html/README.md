@@ -27,7 +27,7 @@ For now Språkbanken uses [Redoc](https://github.com/Rebilly/ReDoc) for conversi
 
 ### build_doc
 
-This python script will parse the yaml register `oas-register.yaml` and download the OAS files for Språkbanken's REST APIs. It will then call ReDoc and build HTML documentation.
+This python script will parse the yaml register `oas-register.yaml` and download the OAS files for Språkbanken's REST APIs. It will then call ReDoc and build HTML documentation. It will also build an `index.html` listing all the API documentations.
 
 Run `build_doc.py` with pipenv:
 

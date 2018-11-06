@@ -1,0 +1,43 @@
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #3f3f40;
+  margin: 20px;
+}
+
+a, a:link, a:visited, a:hover, a:focus, a:active{
+  text-decoration: None;
+  cursor: pointer;
+  color: #337ab7;
+}
+
+ul {
+  line-height: 1.8em;
+}
+
+button {
+  cursor: pointer;
+}
+
+.search-container input,
+.search-container button {
+  line-height: 20px;
+  font-size: 14px;
+}
+
+img {
+  height: 1.8em;
+  vertical-align: middle;
+}
+
+.api-list {
+  margin-top: 2.5em;
+}
+
+input {
+  padding-left: 5px;
+}
+
+a > i {
+  color: black;
+}
