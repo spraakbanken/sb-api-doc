@@ -99,10 +99,11 @@ def make_html(api, html_dir_path, tmp_dir_path):
 def make_index_page(apis, html_dir_path, tmp_dir_path):
     """Fill in API information in index.html and deploy it."""
     html_pieces = []
+    index_url = Config.get("BUILD", "index_url")
 
     for api in apis:
 
-        if api["favicon"]:
+        if api.get("favicon"):
             logo = "<img src='%s' alt='%s-logo'>" % (api["favicon"], api.get("path"))
         else:
             logo = "<i class='fa fa-user-cog'></i>"
@@ -115,7 +116,7 @@ def make_index_page(apis, html_dir_path, tmp_dir_path):
           </a>
           &ndash; %s
         </li>
-        """ % (api.get("html_file"), logo, api.get("name"), api.get("description"))
+        """ % (os.path.join(index_url, api.get("path")), logo, api.get("name"), api.get("description"))
         )
 
     html_list_items = "\n".join(html_pieces)
