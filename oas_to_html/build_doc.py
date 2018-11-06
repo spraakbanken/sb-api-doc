@@ -2,7 +2,6 @@
 import os
 import sys
 import configparser
-import json
 import yaml
 import urllib.request
 import subprocess
