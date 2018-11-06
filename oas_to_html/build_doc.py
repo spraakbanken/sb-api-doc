@@ -103,9 +103,8 @@ def make_index_page(apis, html_dir_path, tmp_dir_path):
 
     for api in apis:
 
-        logo_url = get_logo(api["oas_file_path"])
-        if logo_url:
-            logo = "<img src='%s' alt='%s-logo'>" % (logo_url, api.get("path"))
+        if api["favicon"]:
+            logo = "<img src='%s' alt='%s-logo'>" % (api["favicon"], api.get("path"))
         else:
             logo = "<i class='fa fa-user-cog'></i>"
 
@@ -148,25 +147,6 @@ def make_oas_name(api_name, url):
     prefix = api_name.lower().replace(" ", "_")
     basename = os.path.basename(url)
     return prefix + "_" + basename
-
-
-def get_logo(oas_file):
-    """Parse OAS file and try to get logo."""
-    filename, file_extension = os.path.splitext(oas_file)
-
-    if file_extension.lower() == ".json":
-        with open(oas_file, "r") as f:
-            oas = json.load(f)
-
-    elif file_extension.lower() == ".yaml":
-        with open(oas_file, "r") as f:
-            oas = yaml.load(f)
-    else:
-        raise("Unknown OAS file extension: '%s'. Could not retrieve logo." % file_extension)
-
-    logo_info = oas["info"].get("x-logo", False)
-    if logo_info:
-        return logo_info.get("url", False)
 
 
 if __name__ == '__main__':

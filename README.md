@@ -28,6 +28,7 @@ To register your API documentation please add the following information to [`oas
     [SB API documentation portal](http://demo.spraakdata.gu.se/apidoc). E.g. if the `path` is set to `sparv` the documentation
     will be available at http://demo.spraakdata.gu.se/apidoc/sparv.
   * `description`: A very short description of the API.
+  * `favicon`: Optional. A link to the API's favicon.
 
 Every night a build script is run that downloads all OAS files specified in `oas-register.yaml`, converts them to HTML and rebuilds the index page of the [documentation portal]((http://demo.spraakdata.gu.se/apidoc) listing the different APIs.
 

@@ -3,3 +3,4 @@ apis:
     oas-file: https://raw.githubusercontent.com/spraakbanken/sparv-backend/oas-adapt/app/static/sparv_api_spec.json
     path: sparv
     description: Språkbanken's annotation tool
+    favicon: https://ws.spraakbanken.gu.se/ws/sparv/v3/static/sparv.png
