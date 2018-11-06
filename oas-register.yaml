@@ -1,4 +1,9 @@
 apis:
+  - name: Korp
+    oas-file: https://raw.githubusercontent.com/spraakbanken/korp-backend/v8/docs/api.yaml
+    path: korp
+    description: Språkbanken's corpus search tool
+    favicon: https://spraakbanken.gu.se/korp/korp_icon.ico
   - name: Sparv
     oas-file: https://raw.githubusercontent.com/spraakbanken/sparv-backend/oas-adapt/app/static/sparv_api_spec.json
     path: sparv
