@@ -33,7 +33,7 @@ def oas_test():
     return html
 
 
-@app.route("/reload")
+@app.route("/reload", methods=["GET", "POST"])
 def read_register():
     global apis
     apis = {}
