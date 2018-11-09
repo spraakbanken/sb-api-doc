@@ -19,18 +19,16 @@ REST APIs.
 ## Automatic Generation of HTML Documentation
 
 By registering your Open API Specification (OAS) file in [`oas-register.yaml`](oas-register.yaml) an HTML version of the
-documentation will be generated automatically and published to the [SB API documentation portal](http://demo.spraakdata.gu.se/apidoc).
+documentation will automatically be available on the [SB API documentation portal](https://ws.spraakbanken.gu.se/docs/).
 
 To register your API documentation please add the following information to [`oas-register.yaml`](oas-register.yaml):
   * `name`: The name of your API (used as meta data only).
   * `oas-file`: The URL from where the OAS file can be retrieved. This URL must be accessible from Språkbanken's servers.
   * `path`: The path to your API documentation that will be created automatically. This path should be relative to the
-    [SB API documentation portal](http://demo.spraakdata.gu.se/apidoc). E.g. if the `path` is set to `sparv` the documentation
-    will be available at http://demo.spraakdata.gu.se/apidoc/sparv.
+    [SB API documentation portal](https://ws.spraakbanken.gu.se/docs/). E.g. if the `path` is set to `sparv` the documentation
+    will be available at https://ws.spraakbanken.gu.se/docs/sparv.
   * `description`: A very short description of the API.
   * `favicon`: Optional. A link to the API's favicon.
-
-Every night a build script is run that downloads all OAS files specified in `oas-register.yaml`, converts them to HTML and rebuilds the index page of the [documentation portal](http://demo.spraakdata.gu.se/apidoc) listing the different APIs.
 
 * *TODO: indexing and search function for all documentations on portal*
 * *TODO: Redoc test page (paste a URL or document and get a preview of the Redoc HTML)*
