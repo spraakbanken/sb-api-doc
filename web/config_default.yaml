@@ -1,0 +1,6 @@
+# Location of the OAS register (local path or URL)
+register: https://raw.githubusercontent.com/spraakbanken/sb-api-doc/master/oas-register.yaml
+
+# Location for template files
+index-template: ./templates/index.html
+api-template: ./templates/api.html

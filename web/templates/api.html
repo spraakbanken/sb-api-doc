@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{favicon}}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Hide ReDoc footer */
+      .scrollbar-container div:first-of-type {
+        display: none !important;
+      }
+
+      /* Style example links */
+      a > code {
+        color: rgb(50, 50, 159) !important;
+        background-color: initial !important;
+        border: none !important;
+      }
+
+      redoc a:hover > code {
+        color: rgb(104, 104, 207) !important;
+      }
+
+      /* OAS test UI */
+      .top-bar {
+        width: 100%;
+        display: {{topbar}};
+      }
+
+      .url-bar {
+        background-color: white;
+        padding: 10px;
+        border-bottom: 1px solid rgb(38, 50, 56);
+        font-family: Roboto, sans-serif;
+        font-size: 15px;
+      }
+
+      .url-input {
+        width: 550px;
+      }
+    </style>
+    <script>
+      function setupPage() {
+        document.getElementById('url').addEventListener('keyup', function (event) {
+          event.preventDefault();
+          if (event.keyCode === 13) {
+            document.getElementById('load').click();
+          }
+        });
+
+        let url = '{{spec-url}}';
+
+        if (url) {
+          loadOAS(url);
+        } else {
+          // Try to get URL form query string
+          const urlParams = new URLSearchParams(window.location.search);
+          url = urlParams.get('url');
+          if (url) {
+            document.getElementById('url').value = url;
+            loadOAS(url);
+          }
+        }
+      }
+
+      function reloadWithURL(url) {
+        window.location = '?url=' + url;
+      }
+
+      function loadOAS(url) {
+        const options = {
+          expandResponses: '200',
+          theme: {
+            spacing: {
+              sectionVertical: 25,
+            },
+            typography: {
+              fontSize: '15px'
+            }
+          }
+        };
+        Redoc.init(url, options);
+      }
+    </script>
+  </head>
+  <body onload="setupPage()">
+    <!--<div style="position: absolute; top: 5px; left: 5px; z-index: 99; opacity: 0.3; color: black;"><a href="../"><i class="material-icons">home</i></a></div>-->
+    <div class="top-bar">
+      <div class="url-bar">
+        <input type="text" id="url" placeholder="OpenAPI Specification URL" class="url-input">
+        <input type="button" value="Load" id="load" onclick="reloadWithURL(document.getElementById('url').value)">
+      </div>
+    </div>
+    <redoc spec-url=""></redoc>
+    <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
+  </body>
+</html>

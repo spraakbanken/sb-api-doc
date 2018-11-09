@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ReDoc</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      
+      .top-bar {
+        width: 100%;
+      }
+      
+      .url-bar {
+        background-color: white;
+        padding: 10px;
+        border-bottom: 1px solid rgb(38, 50, 56);
+        font-family: Roboto, sans-serif;
+        font-size: 15px;
+      }
+      
+      .url-input {
+        width: 550px;
+      }
+    </style>
+    <script>
+      function setupPage() {
+        document.getElementById("url").addEventListener("keyup", function(event) {
+          event.preventDefault();
+          if (event.keyCode === 13) {
+            document.getElementById("load").click();
+          }
+        });
+          
+        const urlParams = new URLSearchParams(window.location.search);
+        var url = urlParams.get("url");
+        if (url) {
+          document.getElementById("url").value = url;
+          loadURL(url);
+        }
+      }
+      
+      function loadURL(url) {
+        const options = {
+          expandResponses: '200',
+          theme: {
+            typography: {
+              fontSize: '15px'
+            }
+          }
+        };
+        Redoc.init(url, options);
+      }
+      
+      function reloadWithURL(url) {
+        window.location = "?url=" + url;
+      }
+    </script>
+  </head>
+  <body onload="setupPage()">
+    <div class="top-bar">
+      <div class="url-bar">
+        <input type="text" id="url" placeholder="OpenAPI Specification URL" class="url-input"> <input type="button" value="Load" id="load" onclick="reloadWithURL(document.getElementById('url').value)">
+      </div>
+    </div>
+    <redoc spec-url="" theme-typography-fontSize="15px"></redoc>
+    <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
+  </body>
+</html>

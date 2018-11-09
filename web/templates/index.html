@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="static/gu_sb_favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="static/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <title>SB API Documentation</title>
+  </head>
+  <body>
+    <div id="content">
+      <h1>
+        Språkbanken's REST APIs
+      </h1>
+      <p>
+        <a href="https://spraakbanken.gu.se/eng">Språkbanken</a> is working actively to develop a language technology infrastructure.
+        At present, this encompasses corpus infrastructure, lexical infrastructure, and metadata.
+      </p>
+      <p>
+        On this portal you can browse the documentations of Språkbanken's REST APIs.
+        Most of our software is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>.
+      </p>
+      <p>
+        All documentation found on this portal is based on <a href="https://github.com/OAI/OpenAPI-Specification">Open API Specification</a>.
+        OAS files can among other things be used for generating API client libraries, using tools like
+        <a href="https://github.com/openapitools/openapi-generator">openapi-generator</a>.
+      </p>
+      <div class="search-container" style="display: none;">
+        <form action="">
+          <input type="text" placeholder="Search all documentation..." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+
+      <div class="api-list">
+        <h3>
+          List of Språkbanken's REST APIs
+        </h3>
+        <ul>
+          {{api-list}}
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

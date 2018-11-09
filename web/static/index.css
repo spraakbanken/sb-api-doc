@@ -3,6 +3,14 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: #3f3f40;
   margin: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+#content {
+  margin: 20px auto;
   max-width: 800px;
 }
 
@@ -13,7 +21,9 @@ a, a:link, a:visited, a:hover, a:focus, a:active{
 }
 
 ul {
-  line-height: 1.8em;
+  list-style-type: none;
+  line-height: 2.5;
+  padding-inline-start: 5px;
 }
 
 button {
