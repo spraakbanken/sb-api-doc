@@ -30,7 +30,7 @@ To register your API documentation please add the following information to [`oas
   * `description`: A very short description of the API.
   * `favicon`: Optional. A link to the API's favicon.
 
-Every night a build script is run that downloads all OAS files specified in `oas-register.yaml`, converts them to HTML and rebuilds the index page of the [documentation portal]((http://demo.spraakdata.gu.se/apidoc) listing the different APIs.
+Every night a build script is run that downloads all OAS files specified in `oas-register.yaml`, converts them to HTML and rebuilds the index page of the [documentation portal](http://demo.spraakdata.gu.se/apidoc) listing the different APIs.
 
-* *TODO: indexing and searching all documentations*
+* *TODO: indexing and search function for all documentations on portal*
 * *TODO: Redoc test page (paste a URL or document and get a preview of the Redoc HTML)*

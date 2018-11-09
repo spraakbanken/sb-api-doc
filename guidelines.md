@@ -51,7 +51,7 @@ For inspiration, see some of the already available specifications for Språkbank
 
 ## Template
 
-Check the files in the templates folder for a basic skeleton of an OAS.
+Check the files in the template files [`template.yaml`](templates/template.yaml) and [`template.json`](templates/template.json) for a basic skeleton of an OAS.
 
 ## Tools
 
