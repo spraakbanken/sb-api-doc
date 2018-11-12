@@ -36,9 +36,10 @@ button {
   font-size: 14px;
 }
 
-img {
-  height: 1.6em;
+li img {
+  width: 16px;
   vertical-align: middle;
+  padding-right: 5px;
 }
 
 .api-list {

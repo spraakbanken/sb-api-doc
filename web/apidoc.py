@@ -12,8 +12,9 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     result = []
-    for api in apis:
-        result.append("""<li><img src="{favicon}"> <a href="{path}">{name}</a> &ndash; {description}</li>""".format(**apis[api]))
+    for api in sorted(apis.values(), key=lambda x: x["name"]):
+        api["favicon"] = api.get("favicon") or config["default-favicon"]
+        result.append("""<li><img src="{favicon}"> <a href="{path}">{name}</a> &ndash; {description}</li>""".format(**api))
     return index_template.replace("{{api-list}}", "".join(result))
 
 
@@ -23,7 +24,7 @@ def show_api(path):
         abort(404)
     api = apis[path]
     html = api_template.replace("{{title}}", api["name"] + " API").replace("{{spec-url}}", api["oas-file"]).replace(
-        "{{topbar}}", "none").replace("{{favicon}}", api.get("favicon", ""))
+        "{{topbar}}", "none").replace("{{favicon}}", api.get("favicon") or config["default-favicon"])
     return html
 
 
