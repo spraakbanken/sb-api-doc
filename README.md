@@ -30,5 +30,10 @@ To register your API documentation please add the following information to [`oas
   * `description`: A very short description of the API.
   * `favicon`: Optional. A link to the API's favicon.
 
-* *TODO: indexing and search function for all documentations on portal*
-* *TODO: Redoc test page (paste a URL or document and get a preview of the Redoc HTML)*
+To preview your API documentation, you can use
+the test page available at https://ws.spraakbanken.gu.se/docs/test.
+
+
+## TODO
+
+* Indexing and search function for all documentations on portal
