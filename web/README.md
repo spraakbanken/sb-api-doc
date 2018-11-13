@@ -16,3 +16,7 @@ This Flask application presents a list of the available APIs, and generates HTML
     `pipenv install`
 
 * Optionally copy `config_default.cfg` to `config.cfg` and make necessary changes.
+
+## Running the application
+
+`pipenv run gunicorn apidoc:app`
