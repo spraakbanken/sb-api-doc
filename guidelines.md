@@ -16,7 +16,7 @@ Or somewhat more human-readable:
 * The OAS file should be written in YAML or JSON. (There are tools which can convert between these formats.)
 * The OAS file must be a valid version 3 OpenAPI Specification.
 * The OAS file should “live” together with your code, i.e. it should be stored in the application’s GitHub repository.
-* It is up you whether the specification is programmatically generated (e.g. from docstrings) or written entirely by hand.
+* It is up to you whether the specification is programmatically generated (e.g. from docstrings) or written entirely by hand.
 * If you would like to include example calls in the description fields, please use the following format (this is not part of the official OpenAPI Specification but rather a Språkbanken addition):
 
     YAML example:
@@ -51,7 +51,7 @@ For inspiration, see some of the already available specifications for Språkbank
 
 ## Template
 
-Check the files in the template files [`template.yaml`](templates/template.yaml) and [`template.json`](templates/template.json) for a basic skeleton of an OAS.
+Check the template files [`template.yaml`](templates/template.yaml) and [`template.json`](templates/template.json) for a basic skeleton of an OAS.
 
 ## Tools
 

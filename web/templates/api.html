@@ -61,7 +61,7 @@
         if (url) {
           loadOAS(url);
         } else {
-          // Try to get URL form query string
+          // Try to get URL from query string
           const urlParams = new URLSearchParams(window.location.search);
           url = urlParams.get('url');
           if (url) {
@@ -103,3 +103,4 @@
     <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
   </body>
 </html>
+
