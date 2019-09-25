@@ -1,6 +1,6 @@
 apis:
   - name: Korp
-    oas-file: https://raw.githubusercontent.com/spraakbanken/korp-backend/v8/docs/api.yaml
+    oas-file: https://raw.githubusercontent.com/spraakbanken/korp-backend/master/docs/api.yaml
     path: korp
     description: Språkbanken Text's corpus search tool
     favicon: https://spraakbanken.gu.se/korp/korp_icon.ico
