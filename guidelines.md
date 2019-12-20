@@ -43,11 +43,11 @@ For inspiration, see some of the already available specifications for Språkbank
 
 * Korp
     * [OAS file in YAML](https://raw.githubusercontent.com/spraakbanken/korp-backend/master/docs/api.yaml)
-    * [documentation HTML](http://demo.spraakdata.gu.se/apidoc/korp/)
+    * [documentation HTML](https://ws.spraakbanken.gu.se/docs/korp)
 
 * Sparv
     * [OAS file in JSON](https://raw.githubusercontent.com/spraakbanken/sparv-backend/oas-adapt/app/static/sparv_api_spec.json)
-    * [documentation HTML](http://demo.spraakdata.gu.se/apidoc/sparv/)
+    * [documentation HTML](https://ws.spraakbanken.gu.se/docs/sparv)
 
 ## Template
 
