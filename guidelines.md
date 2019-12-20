@@ -42,7 +42,7 @@ Or somewhat more human-readable:
 For inspiration, see some of the already available specifications for Språkbanken’s tools:
 
 * Korp
-    * [OAS file in YAML](https://raw.githubusercontent.com/spraakbanken/korp-backend/v8/docs/api.yaml)
+    * [OAS file in YAML](https://raw.githubusercontent.com/spraakbanken/korp-backend/master/docs/api.yaml)
     * [documentation HTML](http://demo.spraakdata.gu.se/apidoc/korp/)
 
 * Sparv
