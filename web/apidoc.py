@@ -12,7 +12,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     result = []
-    for api in sorted(apis.values(), key=lambda x: x["name"]):
+    for api in apis.values():
         api["favicon"] = api.get("favicon") or config["default-favicon"]
         result.append("""<li><img src="{favicon}"> <a href="{path}">{name}</a> &ndash; {description}</li>""".format(**api))
     return index_template.replace("{{api-list}}", "".join(result))
