@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from collections import OrderedDict
 from flask import Flask, abort
 import os
 import yaml
@@ -46,10 +47,25 @@ def read_register():
         with open(config["register"]) as infile:
             register_data = infile.read()
 
-    for api in yaml.load(register_data)["apis"]:
+    for api in ordered_load(register_data)["apis"]:
         apis[api["path"]] = api
 
     return "API register updated"
+
+
+def ordered_load(stream, Loader=yaml.Loader, object_pairs_hook=OrderedDict):
+    """Preserve order in yaml.load(). Needed for Python < 3.6."""
+    class OrderedLoader(Loader):
+        pass
+
+    def construct_mapping(loader, node):
+        loader.flatten_mapping(node)
+        return object_pairs_hook(loader.construct_pairs(node))
+
+    OrderedLoader.add_constructor(
+        yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG,
+        construct_mapping)
+    return yaml.load(stream, OrderedLoader)
 
 
 # Read config
@@ -70,6 +86,7 @@ with open(config["api-template"]) as infile:
     api_template = infile.read()
 
 read_register()
+
 
 if __name__ == "__main__":
     # Run using Flask (use only for development)
