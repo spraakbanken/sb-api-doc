@@ -38,7 +38,7 @@ def oas_test():
 @app.route("/reload", methods=["GET", "POST"])
 def read_register():
     global apis
-    apis = {}
+    apis = OrderedDict([])
 
     if re.match(r"https?:\/\/.*", config["register"]):
         with urllib.request.urlopen(config["register"]) as response:
