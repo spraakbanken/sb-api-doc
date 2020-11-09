@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 from collections import OrderedDict
 from flask import Flask, abort
@@ -76,7 +75,7 @@ else:
     config_file = "config_default.yaml"
 
 with open(config_file) as infile:
-    config = yaml.load(infile)
+    config = yaml.load(infile, Loader=yaml.FullLoader)
 
 # Load templates
 with open(config["index-template"]) as infile:
