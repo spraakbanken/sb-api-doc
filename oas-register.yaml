@@ -13,7 +13,3 @@ apis:
     oas-file: https://raw.githubusercontent.com/spraakbanken/sb-metadata/master/metadata/static/apidoc.yaml
     path: metadata
     description: Språkbanken Text's meta data API
-  - name: Guppy
-    oas-file: https://raw.githubusercontent.com/spraakbanken/sbwebb-guppy/master/guppy/static/apidoc.yaml?token=AALUXBPUFRXHBLY2G7F4XCS7WKPJU
-    path: guppy
-    description: API for caching publications from GUP for use on SB website
