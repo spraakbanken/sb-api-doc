@@ -6,17 +6,15 @@ This Flask application presents a list of the available APIs, and generates HTML
 ## Requirements
 
 * [Python](https://www.python.org/) 3.4 or newer
-* [Pipenv](https://pipenv.readthedocs.io/en/latest/) (install with `pip3 install --user pipenv`)
 
 
 ## Installation
 
-* Install Python dependencies:
-
-    `pipenv install`
-
+* Install Python dependencies from `requirements.txt`
 * Optionally copy `config_default.cfg` to `config.cfg` and make necessary changes.
 
 ## Running the application
 
-`pipenv run gunicorn apidoc:app`
+Host a local web server:
+
+`python apidoc.py`
