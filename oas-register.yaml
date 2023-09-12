@@ -10,6 +10,6 @@ apis:
     description: Språkbanken Text's annotation tool
     favicon: https://ws.spraakbanken.gu.se/ws/sparv/v3/static/sparv.png
   - name: SB Metadata
-    oas-file: https://raw.githubusercontent.com/spraakbanken/sb-metadata/master/metadata/static/apidoc.yaml
+    oas-file: https://raw.githubusercontent.com/spraakbanken/metadata-api/main/metadata_api/static/apidoc.yaml
     path: metadata
     description: Språkbanken Text's meta data API
