@@ -8,6 +8,7 @@ apis:
     oas-file: https://raw.githubusercontent.com/spraakbanken/mink-backend/main/mink/static/oas.yaml
     path: mink
     description: Språkbanken Text's tool for processing and publishing language resources
+    favicon: https://raw.githubusercontent.com/spraakbanken/mink-backend/main/mink/static/favicon.ico
   - name: Sparv
     oas-file: https://raw.githubusercontent.com/spraakbanken/sparv-backend/oas-adapt/app/static/sparv_api_spec.json
     path: sparv
