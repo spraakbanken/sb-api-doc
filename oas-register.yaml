@@ -4,6 +4,10 @@ apis:
     path: korp
     description: Språkbanken Text's corpus search tool
     favicon: https://raw.githubusercontent.com/spraakbanken/korp-frontend/dev/app/img/apple-touch-icon.png
+  - name: Mink
+    oas-file: https://raw.githubusercontent.com/spraakbanken/mink-backend/main/mink/static/oas.yaml
+    path: mink
+    description: Språkbanken Text's tool for processing and publishing language resources
   - name: Sparv
     oas-file: https://raw.githubusercontent.com/spraakbanken/sparv-backend/oas-adapt/app/static/sparv_api_spec.json
     path: sparv
