@@ -5,7 +5,7 @@ apis:
     description: Språkbanken Text's corpus search tool
     favicon: https://raw.githubusercontent.com/spraakbanken/korp-frontend/dev/app/img/apple-touch-icon.png
   - name: Mink
-    oas-file: https://ws.spraakbanken.gu.se/ws/mink/api-spec
+    oas-file: https://spraakbanken2.it.gu.se/ws/mink/api-spec
     path: mink
     description: Språkbanken Text's tool for processing and publishing language resources
     favicon: https://raw.githubusercontent.com/spraakbanken/mink-backend/main/mink/static/favicon.ico
