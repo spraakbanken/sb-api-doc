@@ -1,16 +1,18 @@
-
-from collections import OrderedDict
-from flask import Flask, abort, request
+"""Main script for the API documentation web server."""
 import os
-import yaml
-import urllib.request
 import re
+import urllib.request
+from pathlib import Path
+
+import yaml
+from flask import Flask, abort, request
 
 app = Flask(__name__)
-
+apis = {}  # API register
 
 @app.route("/")
 def index():
+    """Generate the index page with a list of APIs."""
     result = []
     for api in apis.values():
         api["favicon"] = api.get("favicon") or config["default-favicon"]
@@ -19,19 +21,19 @@ def index():
 
 
 @app.route("/<path>")
-def show_api(path):
-    if not path in apis:
+def show_api(path: str):
+    """Generate the API documentation page for a specific API."""
+    if path not in apis:
         abort(404)
     api = apis[path]
-    html = api_template.replace("{{title}}", api["name"] + " API").replace("{{spec-url}}", api["oas-file"]).replace(
+    return api_template.replace("{{title}}", api["name"] + " API").replace("{{spec-url}}", api["oas-file"]).replace(
         "{{topbar}}", "none").replace("{{favicon}}", api.get("favicon") or config["default-favicon"])
-    return html
 
 
 @app.route("/test")
 def oas_test():
-    html = api_template.replace("{{title}}", "OAS Test").replace("{{spec-url}}", "").replace("{{topbar}}", "show")
-    return html
+    """Generate the OAS test page."""
+    return api_template.replace("{{title}}", "OAS Test").replace("{{spec-url}}", "").replace("{{topbar}}", "show")
 
 
 @app.route("/fetch")
@@ -52,7 +54,7 @@ def fetch_oas():
             return "URL not found", 404
         return f"HTTP error occurred: {e.reason}", e.code
     except Exception as e:
-        return f"An error occurred: {str(e)}", 500
+        return f"An error occurred: {e!s}", 500
 
     # Determine the mimetype based on the file extension
     if url.endswith((".yaml", ".yml")):
@@ -70,54 +72,54 @@ def fetch_oas():
 
 @app.route("/reload", methods=["GET", "POST"])
 def read_register():
-    global apis
-    apis = OrderedDict([])
-
+    """Read the API register from a file or URL and update the global variable."""
+    # Clear the current register
+    apis.clear()
     if re.match(r"https?:\/\/.*", config["register"]):
         with urllib.request.urlopen(config["register"]) as response:
             register_data = response.read()
     else:
-        with open(config["register"]) as infile:
+        with Path(config["register"]).open(encoding="utf-8") as infile:
             register_data = infile.read()
 
-    for api in ordered_load(register_data)["apis"]:
+    for api in yaml.load(register_data, Loader=yaml.SafeLoader)["apis"]:
         apis[api["path"]] = api
 
     return "API register updated"
 
 
-def ordered_load(stream, Loader=yaml.Loader, object_pairs_hook=OrderedDict):
-    """Preserve order in yaml.load(). Needed for Python < 3.6."""
-    class OrderedLoader(Loader):
-        pass
+def load_config() -> dict:
+    """Load the configuration from a YAML file."""
+    config_file = Path("config.yaml")
+    if not config_file.is_file():
+        print("Using default config. Create config.yaml to customize.")
+        config_file = Path("config_default.yaml")
 
-    def construct_mapping(loader, node):
-        loader.flatten_mapping(node)
-        return object_pairs_hook(loader.construct_pairs(node))
+    with config_file.open(encoding="utf-8") as infile:
+        return yaml.load(infile, Loader=yaml.FullLoader)
 
-    OrderedLoader.add_constructor(
-        yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG,
-        construct_mapping)
-    return yaml.load(stream, OrderedLoader)
+
+def load_templates(config: dict) -> tuple:
+    """Load the HTML templates for the index and API pages."""
+    index_template_path = Path(config["index-template"])
+    api_template_path = Path(config["api-template"])
+
+    with index_template_path.open(encoding="utf-8") as infile:
+        index_template = infile.read()
+
+    with api_template_path.open(encoding="utf-8") as infile:
+        api_template = infile.read()
+
+    return index_template, api_template
 
 
 # Read config
-if os.path.isfile("config.yaml"):
-    config_file = "config.yaml"
-else:
-    print("Using default config. Create config.yaml to customize.")
-    config_file = "config_default.yaml"
-
-with open(config_file) as infile:
-    config = yaml.load(infile, Loader=yaml.FullLoader)
+config = load_config()
 
 # Load templates
-with open(config["index-template"]) as infile:
-    index_template = infile.read()
+index_template, api_template = load_templates(config)
 
-with open(config["api-template"]) as infile:
-    api_template = infile.read()
-
+# Read the API register
 read_register()
 
 
