@@ -1,4 +1,5 @@
 """Main script for the API documentation web server."""
+
 import os
 import re
 import urllib.request
@@ -10,13 +11,16 @@ from flask import Flask, abort, request
 app = Flask(__name__)
 apis = {}  # API register
 
+
 @app.route("/")
 def index():
     """Generate the index page with a list of APIs."""
     result = []
     for api in apis.values():
         api["favicon"] = api.get("favicon") or config["default-favicon"]
-        result.append("""<li><img src="{favicon}"> <a href="{path}">{name}</a> &ndash; {description}</li>""".format(**api))
+        result.append(
+            """<li><img src="{favicon}"> <a href="{path}">{name}</a> &ndash; {description}</li>""".format(**api)
+        )
     return index_template.replace("{{api-list}}", "".join(result))
 
 
@@ -26,8 +30,12 @@ def show_api(path: str):
     if path not in apis:
         abort(404)
     api = apis[path]
-    return api_template.replace("{{title}}", api["name"] + " API").replace("{{spec-url}}", api["oas-file"]).replace(
-        "{{topbar}}", "none").replace("{{favicon}}", api.get("favicon") or config["default-favicon"])
+    return (
+        api_template.replace("{{title}}", api["name"] + " API")
+        .replace("{{spec-url}}", api["oas-file"])
+        .replace("{{topbar}}", "none")
+        .replace("{{favicon}}", api.get("favicon") or config["default-favicon"])
+    )
 
 
 @app.route("/test")
