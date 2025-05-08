@@ -7,7 +7,7 @@ apis:
   - name: Karp
     oas-file: https://spraakbanken4.it.gu.se/karp/v7/openapi.json
     path: karp
-    description: API for Karp - Språkbanken Text's tool for editing structural data
+    description: Språkbanken Text's tool for editing structural data
   - name: Mink
     oas-file: https://ws.spraakbanken.gu.se/ws/mink/api-spec
     path: mink
