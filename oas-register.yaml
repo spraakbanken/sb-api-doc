@@ -9,7 +9,7 @@ apis:
     path: karp
     description: Språkbanken Text's tool for editing structural data
   - name: Mink
-    oas-file: https://ws.spraakbanken.gu.se/ws/mink/api-spec
+    oas-file: https://ws.spraakbanken.gu.se/ws/mink/v1/api-spec
     path: mink
     description: Språkbanken Text's tool for processing and publishing language resources
     favicon: https://raw.githubusercontent.com/spraakbanken/mink-backend/main/mink/static/favicon.ico
