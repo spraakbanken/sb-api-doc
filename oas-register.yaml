@@ -21,7 +21,7 @@ apis:
   - name: Språkbanken Text Metadata API
     oas-file: https://ws.spraakbanken.gu.se/ws/metadata/v3/openapi.json
     path: metadata
-    description: Språkbanken Text's meta data API
+    description: Språkbanken Text's metadata API
   - name: Karp-s
     oas-file: https://spraakbanken4.it.gu.se/karps/dev/openapi.json
     path: karp-s
