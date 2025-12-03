@@ -18,8 +18,8 @@ apis:
     path: sparv
     description: Språkbanken Text's annotation tool
     favicon: https://ws.spraakbanken.gu.se/ws/sparv/v3/static/sparv.png
-  - name: SB Metadata
-    oas-file: https://ws.spraakbanken.gu.se/ws/metadata/v3/doc
+  - name: Språkbanken Text Metadata API
+    oas-file: https://ws.spraakbanken.gu.se/ws/metadata/v3/openapi.json
     path: metadata
     description: Språkbanken Text's meta data API
   - name: Karp-s
