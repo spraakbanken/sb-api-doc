@@ -5,12 +5,11 @@ This Flask application presents a list of the available APIs, and generates HTML
 
 ## Requirements
 
-* [Python](https://www.python.org/) 3.4 or newer
-
+* [Python](https://www.python.org/) 3.12 or newer
 
 ## Installation
 
-* Install Python dependencies from `requirements.txt`
+* Install Python dependencies from `pyproject.toml`.
 * Optionally copy `config_default.cfg` to `config.cfg` and make necessary changes.
 
 ## Running the application
