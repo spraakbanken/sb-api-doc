@@ -22,7 +22,7 @@ apis:
     oas-file: https://ws.spraakbanken.gu.se/ws/metadata/v3/openapi.json
     path: metadata
     description: Språkbanken Text's metadata API
-  - name: Karp-s
-    oas-file: https://spraakbanken4.it.gu.se/karps/dev/openapi.json
+  - name: Karps sökgränssnitt
+    oas-file: https://spraakbanken4.it.gu.se/karps/v1/openapi.json
     path: karp-s
     description: Språkbanken Text's structured data (lexicon) search tool
