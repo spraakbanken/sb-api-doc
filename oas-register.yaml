@@ -8,7 +8,6 @@ apis:
     oas-file: https://spraakbanken4.it.gu.se/karp/v7/openapi.json
     path: karp
     description: Språkbanken Text's tool for editing structural data
-    favicon: https://github.com/spraakbanken/karp-s-frontend/blob/24a48a3a88f0e2b78ac016e592b77e6ccf7c81e3/src/assets/favicon.png?raw=true
   - name: Mink
     oas-file: https://ws.spraakbanken.gu.se/ws/mink/v2/openapi.json
     path: mink
@@ -27,4 +26,3 @@ apis:
     oas-file: https://spraakbanken4.it.gu.se/karps/v1/openapi.json
     path: karp-s
     description: Språkbanken Text's structured data (lexicon) search tool
-    favicon: https://github.com/spraakbanken/karp-s-frontend/blob/24a48a3a88f0e2b78ac016e592b77e6ccf7c81e3/src/assets/favicon.png?raw=true
