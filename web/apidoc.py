@@ -67,7 +67,7 @@ def fetch_oas():
 
     # Determine the mimetype based on the file extension or response content type
     if url.endswith((".yaml", ".yml")) or content_type == "application/yaml":
-        mimetype = "application/x-yaml"
+        mimetype = "application/yaml"
     elif url.endswith(".json") or content_type == "application/json":
         mimetype = "application/json"
     else:
