@@ -1,7 +1,7 @@
 # API Portal
 
 This Flask application presents a list of the available APIs, and generates HTML versions of the APIs using
-[ReDoc](https://github.com/Rebilly/ReDoc).
+[Redoc](https://github.com/Redocly/redoc).
 
 ## Requirements
 
