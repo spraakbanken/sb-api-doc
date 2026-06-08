@@ -57,6 +57,7 @@ def fetch_oas():
     try:
         with urllib.request.urlopen(url) as response:
             response_content = response.read().decode("utf-8")
+            content_type = response.headers.get_content_type()
     except urllib.error.HTTPError as e:
         if e.code == 404:
             return "URL not found", 404
@@ -64,10 +65,10 @@ def fetch_oas():
     except Exception as e:
         return f"An error occurred: {e!s}", 500
 
-    # Determine the mimetype based on the file extension
-    if url.endswith((".yaml", ".yml")):
+    # Determine the mimetype based on the file extension or response content type
+    if url.endswith((".yaml", ".yml")) or content_type == "application/yaml":
         mimetype = "application/x-yaml"
-    elif url.endswith(".json"):
+    elif url.endswith(".json") or content_type == "application/json":
         mimetype = "application/json"
     else:
         mimetype = "application/octet-stream"
