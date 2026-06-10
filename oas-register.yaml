@@ -10,7 +10,7 @@ apis:
     description: Språkbanken Text's tool for editing structural data
     favicon: https://raw.githubusercontent.com/spraakbanken/karp-s-frontend/24a48a3a88f0e2b78ac016e592b77e6ccf7c81e3/src/assets/favicon.png
   - name: Mink
-    oas-file: https://ws.spraakbanken.gu.se/ws/mink/v2/openapi.json
+    oas-file: https://ws.spraakbanken.gu.se/ws/mink/v3/openapi.json
     path: mink
     description: Språkbanken Text's tool for processing and publishing language resources
     favicon: https://raw.githubusercontent.com/spraakbanken/mink-backend/main/mink/static/favicon.ico
