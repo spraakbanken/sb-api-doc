@@ -1,15 +1,70 @@
 """Main script for the API documentation web server."""
 
+import json
 import os
 import re
+import urllib.error
 import urllib.request
 from pathlib import Path
+from urllib.parse import urljoin, urlsplit
 
 import yaml
 from flask import Flask, abort, request
 
 app = Flask(__name__)
 apis = {}  # API register
+
+
+def absolutize_servers(document: object, document_url: str) -> bool:
+    """Resolve relative OpenAPI server URLs against the original document URL.
+
+    We need to recursively traverse the whole document, since the "servers" field can appear also in path items and
+    operations, not just at the root level.
+
+    Returns:
+        `True` if any server URL was modified, `False` otherwise.
+    """
+    changed = False
+
+    if isinstance(document, dict):
+        servers = document.get("servers")
+        if isinstance(servers, list):
+            for server in servers:
+                if not isinstance(server, dict):
+                    continue
+
+                server_url = server.get("url")
+                if isinstance(server_url, str) and not urlsplit(server_url).scheme:
+                    server["url"] = urljoin(document_url, server_url)
+                    changed = True
+
+        for value in document.values():
+            if absolutize_servers(value, document_url):
+                changed = True
+
+    elif isinstance(document, list):
+        for item in document:
+            if absolutize_servers(item, document_url):
+                changed = True
+
+    return changed
+
+
+def transform_oas(content: str, url: str, mimetype: str) -> str:
+    """Apply local transformations to an OAS document before Redoc renders it."""
+    is_json = mimetype == "application/json"
+
+    try:
+        document = json.loads(content) if is_json else yaml.load(content, Loader=yaml.SafeLoader)
+    except (json.JSONDecodeError, yaml.YAMLError):
+        return content
+
+    if not absolutize_servers(document, url):
+        return content
+
+    if is_json:
+        return json.dumps(document, ensure_ascii=False, indent=2)
+    return yaml.safe_dump(document, sort_keys=False, allow_unicode=True)
 
 
 @app.route("/")
@@ -72,6 +127,8 @@ def fetch_oas():
         mimetype = "application/json"
     else:
         mimetype = "application/octet-stream"
+
+    response_content = transform_oas(response_content, url, mimetype)
 
     # Return the fetched content as a file
     response = app.response_class(response=response_content, status=200, mimetype=mimetype)
