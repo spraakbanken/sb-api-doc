@@ -20,7 +20,7 @@ apis:
     description: Språkbanken Text's annotation tool
     favicon: https://ws.spraakbanken.gu.se/ws/sparv/v3/static/sparv.png
   - name: Språkbanken Text Metadata API
-    oas-file: https://ws.spraakbanken.gu.se/ws/metadata/v3/openapi.json
+    oas-file: https://ws.spraakbanken.gu.se/ws/metadata/v4/openapi.json
     path: metadata
     description: Språkbanken Text's metadata API
   - name: Karps sökläge
