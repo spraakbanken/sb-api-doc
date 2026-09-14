@@ -2,29 +2,29 @@ apis:
   - name: Korp
     oas-file: https://raw.githubusercontent.com/spraakbanken/korp-backend/master/docs/api.yaml
     path: korp
-    description: Språkbanken Text's corpus search tool
+    description: Språkbanken's corpus search tool
     favicon: https://raw.githubusercontent.com/spraakbanken/korp-frontend/dev/app/img/apple-touch-icon.png
   - name: Karps redigeringsläge
     oas-file: https://spraakbanken4.it.gu.se/karp/v7/openapi.json
     path: karp
-    description: Språkbanken Text's tool for editing structural data
+    description: Språkbanken's tool for editing structural data
     favicon: https://raw.githubusercontent.com/spraakbanken/karp-s-frontend/24a48a3a88f0e2b78ac016e592b77e6ccf7c81e3/src/assets/favicon.png
   - name: Mink
     oas-file: https://ws.spraakbanken.gu.se/ws/mink/v3/openapi.json
     path: mink
-    description: Språkbanken Text's tool for processing and publishing language resources
+    description: Språkbanken's tool for processing and publishing language resources
     favicon: https://raw.githubusercontent.com/spraakbanken/mink-backend/main/mink/static/favicon.ico
   - name: Sparv
     oas-file: https://raw.githubusercontent.com/spraakbanken/sparv-backend/oas-adapt/app/static/sparv_api_spec.json
     path: sparv
-    description: Språkbanken Text's annotation tool
+    description: Språkbanken's annotation tool
     favicon: https://ws.spraakbanken.gu.se/ws/sparv/v3/static/sparv.png
-  - name: Språkbanken Text Metadata API
+  - name: Språkbanken's Metadata API
     oas-file: https://ws.spraakbanken.gu.se/ws/metadata/v4/openapi.json
     path: metadata
-    description: Språkbanken Text's metadata API
+    description: Språkbanken's metadata API
   - name: Karps sökläge
     oas-file: https://spraakbanken4.it.gu.se/karps/v1/openapi.json
     path: karp-s
-    description: Språkbanken Text's structured data (lexicon) search tool
+    description: Språkbanken's structured data (lexicon) search tool
     favicon: https://raw.githubusercontent.com/spraakbanken/karp-s-frontend/24a48a3a88f0e2b78ac016e592b77e6ccf7c81e3/src/assets/favicon.png
